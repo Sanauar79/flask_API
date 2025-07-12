@@ -7,6 +7,8 @@ messages_bp = Blueprint('messages', __name__, url_prefix='/api/messages')
 @messages_bp.route('/my', methods=['GET'])
 def get_user_messages():
     user_id = session.get('user_id')
+    if 'role' not in session or session['role'] != 'user':
+        return jsonify({"error": "unauthorized"}), 403
     if not user_id:
         return jsonify({"error": "Unauthorized"}), 401
 
