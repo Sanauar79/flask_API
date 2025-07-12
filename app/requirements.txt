@@ -1,6 +1,0 @@
-Flask
-Flask-SQLAlchemy
-Flask-Migrate
-Flask-Mail
-itsdangerous
-Flask-Bcrypt
