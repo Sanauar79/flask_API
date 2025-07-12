@@ -7,6 +7,7 @@ from app.models import User
 app = create_app()
 
 with app.app_context():
+    db.create_all()
     admin_email = "admin@gmail.com"
     admin = User.query.filter_by(email=admin_email).first()
     if not admin:
