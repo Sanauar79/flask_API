@@ -75,6 +75,11 @@ def login():
     session['user_id'] = user.id
     session['email'] = user.email
     session['role'] = user.role
+
+    print("Login attempt:", data.get('email'), data.get('password'))
+    print("User found:", user)
+    if user:
+       print("Password match:", user.check_password(data.get('password')))
     return jsonify({"message": "Login successful", "role": user.role}), 200
 
 @auth_bp.route("/logout", methods=["POST"])
